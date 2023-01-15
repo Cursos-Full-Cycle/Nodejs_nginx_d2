@@ -1,23 +1,23 @@
-FROM node:19 as builder
+FROM node:19-alpine as builder
 
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/
+COPY package.json package-lock.json ./
 RUN npm install
 
-COPY . /usr/src/app
+COPY . ./
+
+RUN npm ci --only=production
+
+RUN apk add --no-cache openssl
+
+
+FROM node:19-alpine
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app ./
 
 EXPOSE 3000
 
 CMD [ "node", "index.js" ]
-
-
-# FROM scratch
-
-# WORKDIR /
-
-# COPY --from=builder /hello /hello
-
-# EXPOSE 8080
-
-# ENTRYPOINT ["/hello"]

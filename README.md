@@ -11,7 +11,7 @@
 
 Rodar o comando
 ```
-docker-compose up -d
+docker-compose up
 ```
 
 
@@ -20,7 +20,7 @@ docker-compose up -d
 Após o projeto clonado, para rodar
 
 ```
-docker-compose up -d
+docker-compose up
 ```
 
 Para rodar

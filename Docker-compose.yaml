@@ -18,7 +18,8 @@ services:
   node:
     image: fabiostefani/fullcycle-nodeapp:latest
     container_name: node
-    restart: always    
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 50s docker-entrypoint.sh node index.js
+    restart: always      
     tty: true        
     volumes:
       - ./node:/usr/src/app

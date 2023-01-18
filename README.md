@@ -19,13 +19,9 @@ docker-compose up
 
 Após o projeto clonado, para rodar
 
-```
-docker-compose up
-```
-
 Para rodar
 ```
-docker-compose -f Docker-compose-dev.yaml up -d
+docker-compose -f Docker-compose-dev.yaml up
 ```
 
 ### Ambos os modos deve imprimir

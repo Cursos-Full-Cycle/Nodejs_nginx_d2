@@ -25,6 +25,8 @@ services:
       - db
     networks:
       - fullcyle-network
+    volumes:
+      - /usr/src/app/node_modules
     
   nginx:
     image: fabiostefani/fullcycle-nginxapp:latest
